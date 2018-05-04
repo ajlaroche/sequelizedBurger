@@ -1,0 +1,46 @@
+body{
+    background-color: lightblue;
+}
+#header{
+    max-height: 15rem;
+}
+
+ul{
+    list-style-type: none;
+    text-align: center;
+    display: inline;
+}
+form{
+    display: inline;
+}
+
+.burgerAvail{
+    text-align: end;
+    padding-bottom: 2rem;
+    font-size: 1.2rem;
+}
+.burgersDevoured{
+    padding-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.buttonCol{
+    display: inherit;
+}
+.addBurgerSection{
+    display: block;
+}
+
+h1{
+    margin: 2rem;
+}
+h3{
+    margin-bottom: 1.5rem;
+}
+textarea{
+    margin-bottom: 1rem;
+}
+#buttonArea{
+    display: block;
+    text-align: center;
+}

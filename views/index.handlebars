@@ -1,0 +1,63 @@
+<div class="containter">
+    <div class="row justify-content-center" id="header">
+        <img src="/images/hamburger.png" class="rounded mx-auto d-block" alt="hamburger">
+
+    </div>
+    <div class="row justify-content-center">
+        <h1>Eat-Da-Burger!</h1>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-6 justify-content-center">
+            <div class="row justify-content-end">
+                <h3>Available Burgers</h3>
+            </div>
+            <div class="row justify-content-end">
+                <ul>
+                    {{#each burgers}} {{#unless this.devoured}}
+                    <li>
+                        <div class="row">
+                            <div class="col-9 burgerAvail">
+                                {{this.burger_name}}
+                            </div>
+                            <div class="col-3 buttonCol">
+                                {{!-- <form action="burgers/update/{{this.id}}?_method=PUT" method="POST"> --}}  {{!-- use this line if using the method override npm package to submit via form--}}
+                                <form>
+                                    {{!-- <input type="hidden" name="devoured" value="true"> --}}  {{!-- use this line if using the method override npm package to submit via form--}}
+                                    {{!-- Captures the burger id in the button as an attribute --}}
+                                    <button data-burgerid="{{this.id}}" class="devourButton" type="submit">Devour!</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    {{/unless}} {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row justify-content-center">
+                <h3>Devoured Burgers</h3>
+            </div>
+            <div class="row justify-content-center burgersDevoured">
+                <ul>
+                    {{#each burgers}} {{#if this.devoured}}
+                    <li>
+                        {{this.burger_name}}
+
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center addBurgerSection">
+        <div class="row justify-content-center">
+            <textarea name="burgerEntry" id="burgerAdd" cols="30" rows="4"></textarea>
+        </div>
+        <div class="row justify-content-center" id="buttonArea">
+            <button type="submit" id="newBurgerButton">Submit</button>
+            <p>Enter a burger that you would like to eat</p>
+        </div>
+    </div>
+</div>
+
