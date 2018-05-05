@@ -28,14 +28,26 @@ router.put("/burgers/update/:id", function (req, res) {
     console.log("condition: ", condition);
 
     console.log(req.body.devoured);
+    console.log(req.body.burger_name);
+    console.log(req.body.customer_name);
 
     db.burger.update(
         { devoured: req.body.devoured },
-        { where: 
-            {id: req.params.id
-            }
+        {
+            where:
+                {
+                    id: req.params.id
+                }
         }).then(function () {
-            res.redirect("/burgers");
+            db.customer.create(
+                {
+                    customer_name: req.body.customer_name,
+                    burger_name: req.body.burger_name
+                }
+            ).then(function () {
+                res.redirect("/burgers");
+            })
+
         });
 });
 

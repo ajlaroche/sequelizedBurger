@@ -25,15 +25,20 @@ $(".devourButton").on("click", function (event) {
     // event.preventDefault();
 
     var id = $(this).data("burgerid");
+    var burgerName = $(this).data("burgername");
+    var customerName = $("#customerName").val().trim();
 
     console.log(id);
+    console.log(burgerName);
+    console.log(customerName);
 
     $.ajax("/burgers/update/" + id, {
         type: "PUT",
-        data: { devoured: true }
+        data: { devoured: true, customer_name: customerName, burger_name: burgerName }
     }).then(
         function () {
             console.log("updated id ", id);
+            $("#customerName").val("");
             location.reload();
         }
     );

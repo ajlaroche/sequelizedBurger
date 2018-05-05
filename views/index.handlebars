@@ -17,16 +17,16 @@
                     {{#each burgers}} {{#unless this.devoured}}
                     <li>
                         <div class="row">
-                            <div class="col-9 burgerAvail">
+                            <div class="col-6 burgerAvail">
                                 {{this.burger_name}}
                             </div>
-                            <div class="col-3 buttonCol">
-                                {{!-- <form action="burgers/update/{{this.id}}?_method=PUT" method="POST"> --}}  {{!-- use this line if using the method override npm package to submit via form--}}
-                                <form>
-                                    {{!-- <input type="hidden" name="devoured" value="true"> --}}  {{!-- use this line if using the method override npm package to submit via form--}}
-                                    {{!-- Captures the burger id in the button as an attribute --}}
-                                    <button data-burgerid="{{this.id}}" class="devourButton" type="submit">Devour!</button>
-                                </form>
+                            <div class="col-6 buttonCol">
+                                {{!--
+                                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST"> --}} {{!-- use this line if using the method override npm package to submit via form--}}
+                                    <form>
+                                        <input id="customerName" type="text" placeholder="customer">
+                                        <button data-burgerid="{{this.id}}" data-burgername="{{this.burger_name}}" class="devourButton" type="submit">Devour!</button>
+                                    </form>
                             </div>
                         </div>
                     </li>
@@ -60,4 +60,3 @@
         </div>
     </div>
 </div>
-
