@@ -6,5 +6,14 @@ module.exports = function (sequelize, DataTypes) {
         {
             timestamps: false
         });
+
+        customer.associate = function(models){
+            customer.belongsTo(models.burger,{
+                foreignKey: {
+                    allowNull: false
+                }
+            })
+        }
+        
     return customer;
 }

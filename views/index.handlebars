@@ -24,7 +24,7 @@
                                 {{!--
                                 <form action="burgers/update/{{this.id}}?_method=PUT" method="POST"> --}} {{!-- use this line if using the method override npm package to submit via form--}}
                                     <form>
-                                        <input id="customerName" type="text" placeholder="customer">
+                                        <input type="text" id={{this.id}} placeholder="customer">
                                         <button data-burgerid="{{this.id}}" data-burgername="{{this.burger_name}}" class="devourButton" type="submit">Devour!</button>
                                     </form>
                             </div>
@@ -42,7 +42,7 @@
                 <ul>
                     {{#each burgers}} {{#if this.devoured}}
                     <li>
-                        {{this.burger_name}}
+                        {{this.burger_name}} (Eaten by {{this.customers.0.customer_name}})
 
                     </li>
                     {{/if}} {{/each}}

@@ -26,7 +26,8 @@ $(".devourButton").on("click", function (event) {
 
     var id = $(this).data("burgerid");
     var burgerName = $(this).data("burgername");
-    var customerName = $("#customerName").val().trim();
+    // var inputName = "'#" + id + "'";
+    var customerName = $("#" + id).val().trim();
 
     console.log(id);
     console.log(burgerName);
@@ -38,7 +39,7 @@ $(".devourButton").on("click", function (event) {
     }).then(
         function () {
             console.log("updated id ", id);
-            $("#customerName").val("");
+            // $("#customerName").val("");
             location.reload();
         }
     );

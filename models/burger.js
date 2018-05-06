@@ -25,5 +25,14 @@ module.exports = function(sequelize, DataTypes){
         burger_name: DataTypes.STRING,
         devoured: DataTypes.BOOLEAN
     });
+
+    burger.associate = function(models) {
+        // Associating burger with customers
+        // When an burger is deleted, also delete any associated customer
+        burger.hasMany(models.customer, {
+          onDelete: "cascade"
+        });
+    
+      };
     return burger;
 }
