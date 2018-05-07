@@ -8,7 +8,8 @@ router.get("/", function (req, res) {
 
 router.get("/burgers", function (req, res) {
     db.burger.findAll({
-        include: [db.customer]
+        include: [db.customer],
+        order: [["burger_name", "ASC"]]
     }).then(function (data) {
         var hbsObject = { burgers: data };
         console.log(data);
@@ -24,11 +25,11 @@ router.post("/burgers/create", function (req, res) {
     }).then(function (dbburger) {
         res.redirect("/burgers");
         // console.log(dbburger);
-    }).catch(function(err) {
+    }).catch(function (err) {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.redirect("/burgers");
-        });
+    });
 });
 
 router.put("/burgers/update/:id", function (req, res) {
@@ -57,11 +58,11 @@ router.put("/burgers/update/:id", function (req, res) {
             })
     }).then(function (dbcustomer) {
         res.redirect("/burgers");
-    }).catch(function(err) {
+    }).catch(function (err) {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.redirect("/burgers");
-        });
+    });
 
 });
 
