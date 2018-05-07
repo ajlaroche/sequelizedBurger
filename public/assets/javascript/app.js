@@ -40,7 +40,7 @@ $(".devourButton").on("click", function (event) {
         function () {
             console.log("updated id ", id);
             // $("#customerName").val("");
-            location.reload();
+            location.reload(true);
         }
     );
 });
