@@ -57,11 +57,11 @@ router.put("/burgers/update/:id", function (req, res) {
                     }
             })
     }).then(function (dbcustomer) {
-        res.redirect("/burgers");
+        res.sendStatus(200);
     }).catch(function (err) {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.redirect("/burgers");
+        console.log(err);
     });
 
 });
